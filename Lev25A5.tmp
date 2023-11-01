@@ -1,0 +1,405 @@
+[gd_scene load_steps=9 format=3 uid="uid://cksddarnq3agq"]
+
+[ext_resource type="Script" path="res://Level.gd" id="1_e1lm2"]
+[ext_resource type="PackedScene" uid="uid://d3wjxu0wdiuhn" path="res://Player.tscn" id="1_o8e0s"]
+[ext_resource type="Script" path="res://Opponent.gd" id="2_7lojg"]
+[ext_resource type="PackedScene" uid="uid://dsai5gxj8fx8v" path="res://Ball.tscn" id="2_xfd05"]
+[ext_resource type="FontFile" uid="uid://djqrjfq0y03g0" path="res://pong-score.ttf" id="5_8jd4q"]
+[ext_resource type="PackedScene" uid="uid://dbdnl73qdjbvh" path="res://PowerUp.tscn" id="6_rv12r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmfxs"]
+size = Vector2(1920, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_brey4"]
+size = Vector2(50, 1180)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_e1lm2")
+powerUp = ExtResource("6_rv12r")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+size_flags_horizontal = 0
+color = Color(0, 0, 0, 1)
+
+[node name="ContainerBorder" type="Panel" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="LeftBorder" type="ColorRect" parent="ContainerBorder"]
+layout_mode = 0
+offset_right = 10.0
+offset_bottom = 1080.0
+
+[node name="RightBorder" type="ColorRect" parent="ContainerBorder"]
+layout_mode = 0
+offset_left = 1910.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="TopBorder" type="ColorRect" parent="ContainerBorder"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 10.0
+
+[node name="BottomBorder" type="ColorRect" parent="ContainerBorder"]
+layout_mode = 0
+offset_top = 1070.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Line" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 950.0
+offset_top = -9.0
+offset_right = 970.0
+offset_bottom = 1089.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MinLine" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine2" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin2" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine3" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin3" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine4" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin4" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine5" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin5" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine6" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin6" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine7" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin7" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine8" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin8" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine9" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin9" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine10" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin10" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine11" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin11" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine12" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin12" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine13" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin13" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine14" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin14" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine15" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin15" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine16" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin16" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine17" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin17" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine18" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin18" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine19" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin19" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine20" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin20" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine21" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin21" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine22" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin22" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine23" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin23" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine24" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin24" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine25" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin25" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine26" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin26" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine27" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin27" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine28" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin28" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="MinLine29" type="ColorRect" parent="Line"]
+custom_minimum_size = Vector2(20, 27)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Margin29" type="MarginContainer" parent="Line"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+
+[node name="Player" parent="." instance=ExtResource("1_o8e0s")]
+position = Vector2(50, 500)
+up_direction = Vector2(1, 0)
+slide_on_ceiling = false
+
+[node name="Opponen" parent="." instance=ExtResource("1_o8e0s")]
+position = Vector2(1870, 500)
+up_direction = Vector2(1, 0)
+slide_on_ceiling = false
+script = ExtResource("2_7lojg")
+
+[node name="Ball" parent="." instance=ExtResource("2_xfd05")]
+position = Vector2(960, 540)
+platform_floor_layers = 4294967294
+
+[node name="ParedSuperior" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedSuperior"]
+position = Vector2(960, -25)
+shape = SubResource("RectangleShape2D_tmfxs")
+one_way_collision_margin = 1.5
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="ParedInferior" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedInferior"]
+position = Vector2(960, 1105)
+shape = SubResource("RectangleShape2D_tmfxs")
+one_way_collision_margin = 1.5
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="ArcoPlayer" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArcoPlayer"]
+position = Vector2(-25, 540)
+shape = SubResource("RectangleShape2D_brey4")
+one_way_collision_margin = 0.0
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="ArcoOponente" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArcoOponente"]
+position = Vector2(1945, 540)
+shape = SubResource("RectangleShape2D_brey4")
+
+[node name="ScorePlayer" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 40.0
+offset_right = 960.0
+offset_bottom = 140.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_8jd4q")
+theme_override_font_sizes/font_size = 72
+text = "Marcador del jugador"
+horizontal_alignment = 1
+
+[node name="ScoreOpponent" type="Label" parent="."]
+offset_left = 960.0
+offset_top = 40.0
+offset_right = 1920.0
+offset_bottom = 140.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_8jd4q")
+theme_override_font_sizes/font_size = 72
+text = "Marcador del Oponente"
+horizontal_alignment = 1
+
+[node name="RestartTimer" type="Timer" parent="."]
+
+[node name="PowerUpTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="body_entered" from="ArcoPlayer" to="." method="_on_arco_player_body_entered"]
+[connection signal="body_entered" from="ArcoOponente" to="." method="_on_arco_oponente_body_entered"]
+[connection signal="timeout" from="RestartTimer" to="Ball" method="_on_restart_timer_timeout"]
+[connection signal="timeout" from="PowerUpTimer" to="." method="_on_power_up_timer_timeout"]

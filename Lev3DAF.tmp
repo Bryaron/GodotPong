@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://cksddarnq3agq"]
+
+[ext_resource type="Script" path="res://Level.gd" id="1_e1lm2"]
+[ext_resource type="PackedScene" uid="uid://d3wjxu0wdiuhn" path="res://Player.tscn" id="1_o8e0s"]
+[ext_resource type="Script" path="res://Opponent.gd" id="2_7lojg"]
+[ext_resource type="PackedScene" uid="uid://dsai5gxj8fx8v" path="res://Ball.tscn" id="2_xfd05"]
+[ext_resource type="FontFile" uid="uid://yk1tnsbbaoth" path="res://poetsen.ttf" id="5_v0epv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmfxs"]
+size = Vector2(1920, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_brey4"]
+size = Vector2(50, 1180)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_e1lm2")
+
+[node name="ParedSuperior" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedSuperior"]
+position = Vector2(960, -25)
+shape = SubResource("RectangleShape2D_tmfxs")
+one_way_collision_margin = 1.5
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="ParedInferior" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedInferior"]
+position = Vector2(960, 1105)
+shape = SubResource("RectangleShape2D_tmfxs")
+one_way_collision_margin = 1.5
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="ArcoPlayer" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArcoPlayer"]
+position = Vector2(-25, 540)
+shape = SubResource("RectangleShape2D_brey4")
+
+[node name="ArcoOponente" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArcoOponente"]
+position = Vector2(1945, 540)
+shape = SubResource("RectangleShape2D_brey4")
+
+[node name="Player" parent="." instance=ExtResource("1_o8e0s")]
+position = Vector2(50, 500)
+up_direction = Vector2(1, 0)
+slide_on_ceiling = false
+
+[node name="Opponen" parent="." instance=ExtResource("1_o8e0s")]
+position = Vector2(1870, 500)
+up_direction = Vector2(1, 0)
+slide_on_ceiling = false
+script = ExtResource("2_7lojg")
+
+[node name="ScorePlayer" type="Label" parent="."]
+anchors_preset = -1
+offset_right = 960.0
+offset_bottom = 1080.0
+theme_override_colors/font_color = Color(0.831373, 0.388235, 0.0784314, 1)
+theme_override_fonts/font = ExtResource("5_v0epv")
+theme_override_font_sizes/font_size = 32
+text = "Marcador del jugador"
+horizontal_alignment = 1
+
+[node name="ScoreOpponent" type="Label" parent="."]
+anchors_preset = -1
+offset_left = 960.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_colors/font_color = Color(0.831373, 0.388235, 0.0784314, 1)
+theme_override_fonts/font = ExtResource("5_v0epv")
+theme_override_font_sizes/font_size = 32
+text = "Marcador del Oponente"
+horizontal_alignment = 1
+
+[node name="Ball" parent="." instance=ExtResource("2_xfd05")]
+position = Vector2(960, 540)
+
+[connection signal="body_entered" from="ArcoPlayer" to="." method="_on_arco_player_body_entered"]
+[connection signal="body_entered" from="ArcoOponente" to="." method="_on_arco_oponente_body_entered"]

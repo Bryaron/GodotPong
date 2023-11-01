@@ -1,0 +1,15 @@
+Timer
+Panel
+Container
+ColorRect
+MarginContainer
+VBoxContainer
+TextureRect
+VSlider
+AudioStreamPlayer
+Label
+CollisionShape2D
+Sprite2D
+CharacterBody2D
+Area2D
+StaticBody2D
