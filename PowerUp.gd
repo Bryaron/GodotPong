@@ -18,7 +18,11 @@ func _physics_process(delta):
 		if collide:
 			direction = direction.bounce(collide.get_normal())
 			rotSpeed = rotSpeed * -1
-			$AudioCollision.play()
+			var collider = collide.get_collider()
+			if collider is Player or collider is Opponent:
+				$AudioPowerUp.play()
+			else:
+				$AudioCollision.play()
 
 func reset_ball():
 	timer.stop()

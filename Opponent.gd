@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Opponent
 
 var speed = 600
 @onready var ball = get_parent().find_child("Ball")

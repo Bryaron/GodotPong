@@ -1,4 +1,5 @@
 extends Node2D
+class_name Level
 
 var playerScore = 0;
 var opponentScore = 0;

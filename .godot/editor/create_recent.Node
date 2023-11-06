@@ -1,3 +1,4 @@
+AudioStreamPlayer
 Timer
 Panel
 Container
@@ -6,7 +7,6 @@ MarginContainer
 VBoxContainer
 TextureRect
 VSlider
-AudioStreamPlayer
 Label
 CollisionShape2D
 Sprite2D

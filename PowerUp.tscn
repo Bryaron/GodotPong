@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbdnl73qdjbvh"]
+[gd_scene load_steps=5 format=3 uid="uid://dbdnl73qdjbvh"]
 
-[ext_resource type="PackedScene" uid="uid://dsai5gxj8fx8v" path="res://Ball.tscn" id="1_wmurl"]
+[ext_resource type="PackedScene" uid="uid://cra38wi72pg86" path="res://Ball.tscn" id="1_wmurl"]
 [ext_resource type="Texture2D" uid="uid://do7b7r0v22t03" path="res://icon_color.svg" id="2_dhuks"]
 [ext_resource type="Script" path="res://PowerUp.gd" id="2_yigq4"]
+[ext_resource type="AudioStream" uid="uid://bn3q16fxlo7ux" path="res://powerUpSound2.wav" id="4_xn4lx"]
 
 [node name="PowerUp" instance=ExtResource("1_wmurl")]
 position = Vector2(960, 540)
@@ -10,3 +11,6 @@ script = ExtResource("2_yigq4")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_dhuks")
+
+[node name="AudioPowerUp" type="AudioStreamPlayer" parent="." index="3"]
+stream = ExtResource("4_xn4lx")
