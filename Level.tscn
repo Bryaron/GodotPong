@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Level.gd" id="1_e1lm2"]
 [ext_resource type="PackedScene" uid="uid://d3wjxu0wdiuhn" path="res://Player.tscn" id="1_o8e0s"]
 [ext_resource type="Script" path="res://Opponent.gd" id="2_7lojg"]
-[ext_resource type="PackedScene" uid="uid://cra38wi72pg86" path="res://Ball.tscn" id="2_xfd05"]
+[ext_resource type="PackedScene" uid="uid://dilgcqvawriqh" path="res://Ball.tscn" id="2_xfd05"]
 [ext_resource type="FontFile" uid="uid://djqrjfq0y03g0" path="res://pong-score.ttf" id="5_8jd4q"]
 [ext_resource type="PackedScene" uid="uid://dbdnl73qdjbvh" path="res://PowerUp.tscn" id="6_rv12r"]
 
@@ -398,6 +398,8 @@ horizontal_alignment = 1
 
 [node name="PowerUpTimer" type="Timer" parent="."]
 wait_time = 5.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [connection signal="body_entered" from="ArcoPlayer" to="." method="_on_arco_player_body_entered"]
 [connection signal="body_entered" from="ArcoOponente" to="." method="_on_arco_oponente_body_entered"]

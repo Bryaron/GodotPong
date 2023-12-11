@@ -1,7 +1,5 @@
 res://Level.tscn
 res://Player.gd
-res://Ball.tscn
 res://PowerUp.tscn
+res://Ball.tscn
 res://PowerUp.gd
-res://Level.gd
-res://Opponent.gd

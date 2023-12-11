@@ -12,4 +12,3 @@ CollisionShape2D
 Sprite2D
 CharacterBody2D
 Area2D
-StaticBody2D
