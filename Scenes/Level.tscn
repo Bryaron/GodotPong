@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://cksddarnq3agq"]
 
-[ext_resource type="Script" path="res://Level.gd" id="1_e1lm2"]
-[ext_resource type="PackedScene" uid="uid://d3wjxu0wdiuhn" path="res://Player.tscn" id="1_o8e0s"]
-[ext_resource type="Script" path="res://Opponent.gd" id="2_7lojg"]
-[ext_resource type="PackedScene" uid="uid://dilgcqvawriqh" path="res://Ball.tscn" id="2_xfd05"]
-[ext_resource type="FontFile" uid="uid://djqrjfq0y03g0" path="res://pong-score.ttf" id="5_8jd4q"]
-[ext_resource type="PackedScene" uid="uid://dbdnl73qdjbvh" path="res://PowerUp.tscn" id="6_rv12r"]
+[ext_resource type="Script" path="res://Scripts/Level.gd" id="1_e1lm2"]
+[ext_resource type="PackedScene" uid="uid://d3wjxu0wdiuhn" path="res://Scenes/Player.tscn" id="1_o8e0s"]
+[ext_resource type="PackedScene" uid="uid://dilgcqvawriqh" path="res://Scenes/Ball.tscn" id="2_xfd05"]
+[ext_resource type="PackedScene" uid="uid://usqqmytv0s71" path="res://Scenes/Opponent.tscn" id="4_kqi7r"]
+[ext_resource type="FontFile" uid="uid://djqrjfq0y03g0" path="res://Fonts/pong-score.ttf" id="5_8jd4q"]
+[ext_resource type="PackedScene" uid="uid://dbdnl73qdjbvh" path="res://Scenes/PowerUp.tscn" id="6_rv12r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmfxs"]
 size = Vector2(1920, 50)
@@ -328,11 +328,8 @@ position = Vector2(50, 500)
 up_direction = Vector2(1, 0)
 slide_on_ceiling = false
 
-[node name="Opponent" parent="." instance=ExtResource("1_o8e0s")]
-position = Vector2(1870, 500)
-up_direction = Vector2(1, 0)
-slide_on_ceiling = false
-script = ExtResource("2_7lojg")
+[node name="Opponent" parent="." instance=ExtResource("4_kqi7r")]
+position = Vector2(1870, 540)
 
 [node name="Ball" parent="." instance=ExtResource("2_xfd05")]
 position = Vector2(960, 540)

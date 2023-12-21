@@ -1,3 +1,6 @@
+VisibleOnScreenNotifier2D
+CollisionShape2D
+Area2D
 AudioStreamPlayer
 Timer
 Panel
@@ -8,7 +11,4 @@ VBoxContainer
 TextureRect
 VSlider
 Label
-CollisionShape2D
 Sprite2D
-CharacterBody2D
-Area2D

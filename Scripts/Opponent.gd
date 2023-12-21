@@ -1,21 +1,26 @@
 extends CharacterBody2D
-class_name Player
+class_name Opponent
+
+var speed = 600
+@onready var ball = get_parent().find_child("Ball")
 
 const maxSpeed = 400
-#const speed = 1000
+
 var acceleration = 1500
 const friction = 800
-var isMoving
+
+var isMoving:bool
+
+var powerUp:bool = false
+var powerUp1:bool = false
+var powerUp2:bool = false
+var powerUp3:bool = false
 
 var direction = Vector2.ZERO
-var input = Vector2.ZERO
-
 
 func _physics_process(delta):
-	#print(velocity)
-	input = Input.get_axis("ui_up", "ui_down")
-	direction = Vector2(0, input)
-	
+	direction = Vector2(0,_get_direction())
+
 	if (direction.y == 0): 
 		isMoving = false
 		applyFriction(delta)
@@ -27,8 +32,17 @@ func _physics_process(delta):
 		#print("Se mueve")
 		
 	move_and_collide(velocity * delta)
+
+func _get_direction():
 	
-	
+	if abs(ball.position.y - position.y - 40) > 25:
+		if ball.position.y > position.y:
+			return 1
+		else:
+			return -1
+	else:
+		return 0
+
 func accelerate(delta):
 	velocity += (direction * acceleration * delta)
 	velocity = velocity.limit_length(maxSpeed)
@@ -42,5 +56,3 @@ func applyFriction(delta):
 		#Hace que frene mas rapido si el input en Y es zero
 		#velocity = Vector2.ZERO
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
-	
-

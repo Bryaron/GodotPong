@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://yk1tnsbbaoth"
-path="res://.godot/imported/poetsen.ttf-0e8df5d748b5bb943470f9a9b0f5ac58.fontdata"
+uid="uid://djqrjfq0y03g0"
+path="res://.godot/imported/pong-score.ttf-84510e3a85487c68bb0036d844f63805.fontdata"
 
 [deps]
 
-source_file="res://poetsen.ttf"
-dest_files=["res://.godot/imported/poetsen.ttf-0e8df5d748b5bb943470f9a9b0f5ac58.fontdata"]
+source_file="res://Fonts/pong-score.ttf"
+dest_files=["res://.godot/imported/pong-score.ttf-84510e3a85487c68bb0036d844f63805.fontdata"]
 
 [params]
 

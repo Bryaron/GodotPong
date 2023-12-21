@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://usqqmytv0s71"]
+
+[ext_resource type="Script" path="res://Scripts/Opponent.gd" id="1_yvog6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tey5v"]
+size = Vector2(10, 80)
+
+[node name="Opponent" type="CharacterBody2D"]
+up_direction = Vector2(1, 0)
+slide_on_ceiling = false
+script = ExtResource("1_yvog6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_top = -40.0
+offset_right = 10.0
+offset_bottom = 40.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, 0)
+shape = SubResource("RectangleShape2D_tey5v")
