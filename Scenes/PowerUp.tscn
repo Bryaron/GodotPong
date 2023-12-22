@@ -9,9 +9,9 @@
 radius = 48.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k1y8l"]
-radius = 55.0364
+radius = 64.0
 
-[node name="PowerUp" type="CharacterBody2D"]
+[node name="PowerUp" type="CharacterBody2D" groups=["power"]]
 script = ExtResource("1_k2yo7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

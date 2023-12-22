@@ -29,5 +29,3 @@ func reset_ball():
 func _on_restart_timer_timeout():
 	reset_ball()
 
-func _on_visible_on_screen_notifier_2d_screen_exited():
-	print("Sali de pantalla")

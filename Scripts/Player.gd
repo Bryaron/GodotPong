@@ -7,14 +7,12 @@ const friction:int = 800
 
 var isMoving:bool
 
-var powerUp:bool = false
 var powerUp1:bool = false
 var powerUp2:bool = false
 var powerUp3:bool = false
 
 var direction = Vector2.ZERO
 var input = Vector2.ZERO
-
 
 func _physics_process(delta):
 	#print(velocity)
@@ -49,4 +47,13 @@ func applyFriction(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	
 
-
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("power"):
+		if powerUp1:
+			print(powerUp1)
+		if powerUp2:
+			print(powerUp2)
+		if powerUp3:
+			print(powerUp3)
+		body.queue_free()
+		

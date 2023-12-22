@@ -11,7 +11,6 @@ const friction = 800
 
 var isMoving:bool
 
-var powerUp:bool = false
 var powerUp1:bool = false
 var powerUp2:bool = false
 var powerUp3:bool = false
