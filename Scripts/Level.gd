@@ -16,7 +16,6 @@ func _restart_game():
 	$Ball.is_moving = false;
 	$Ball.direction = Vector2.ZERO
 	$Ball.position = Vector2(960, 540)
-	
 	$RestartTimer.start()
 	$PowerUpTimer.start()
 

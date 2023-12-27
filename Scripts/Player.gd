@@ -46,14 +46,25 @@ func applyFriction(delta):
 		#velocity = Vector2.ZERO
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	
+func _expand_bar():
+	var nueva_escala = Vector2(1, 2) 
+	global_scale = nueva_escala
+	
+func _reduce_bar():
+	var nueva_escala = Vector2(1, 0.5) 
+	global_scale = nueva_escala
 
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("power"):
 		if powerUp1:
+			_expand_bar()
+			powerUp1 = false
 			print(powerUp1)
 		if powerUp2:
+			_reduce_bar()
+			powerUp2 = false
 			print(powerUp2)
 		if powerUp3:
+			Global.change_scenary()
+			powerUp3 = false
 			print(powerUp3)
-		body.queue_free()
-		

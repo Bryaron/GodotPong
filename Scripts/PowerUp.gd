@@ -25,11 +25,11 @@ func _physics_process(delta):
 		if collide:
 			direction = direction.bounce(collide.get_normal())
 			rotSpeed = rotSpeed * -1
-			var collider = collide.get_collider()
-			if collider is Player or collider is Opponent:
+			var collider = collide.get_collider() #Obtengo el objecto mediante el collider
+			if collider is Player or collider is Opponent: 
 				audio.stream = $AudioPowerUp.get_stream()
 				audio.play()
-				#print(collider) #Obtengo el objecto mediante el collider
+				queue_free()
 			else:
 				$AudioCollision.play()
 

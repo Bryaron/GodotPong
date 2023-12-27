@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cksddarnq3agq"]
+[gd_scene load_steps=10 format=3 uid="uid://cksddarnq3agq"]
 
 [ext_resource type="Script" path="res://Scripts/Level.gd" id="1_e1lm2"]
 [ext_resource type="PackedScene" uid="uid://d3wjxu0wdiuhn" path="res://Scenes/Player.tscn" id="1_o8e0s"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://usqqmytv0s71" path="res://Scenes/Opponent.tscn" id="4_kqi7r"]
 [ext_resource type="FontFile" uid="uid://djqrjfq0y03g0" path="res://Fonts/pong-score.ttf" id="5_8jd4q"]
 [ext_resource type="PackedScene" uid="uid://dbdnl73qdjbvh" path="res://Scenes/PowerUp.tscn" id="6_rv12r"]
+[ext_resource type="Script" path="res://Scripts/Line2D.gd" id="7_ksy44"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmfxs"]
 size = Vector2(1920, 50)
@@ -27,29 +28,30 @@ color = Color(0, 0, 0, 1)
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="LeftBorder" type="ColorRect" parent="ContainerBorder"]
+[node name="LeftBorder" type="ColorRect" parent="ContainerBorder" groups=["border"]]
 layout_mode = 0
 offset_right = 10.0
 offset_bottom = 1080.0
 
-[node name="RightBorder" type="ColorRect" parent="ContainerBorder"]
+[node name="RightBorder" type="ColorRect" parent="ContainerBorder" groups=["border"]]
 layout_mode = 0
 offset_left = 1910.0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="TopBorder" type="ColorRect" parent="ContainerBorder"]
+[node name="TopBorder" type="ColorRect" parent="ContainerBorder" groups=["border"]]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 10.0
 
-[node name="BottomBorder" type="ColorRect" parent="ContainerBorder"]
+[node name="BottomBorder" type="ColorRect" parent="ContainerBorder" groups=["border"]]
 layout_mode = 0
 offset_top = 1070.0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
 [node name="Line" type="VBoxContainer" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -394,9 +396,16 @@ horizontal_alignment = 1
 [node name="RestartTimer" type="Timer" parent="."]
 
 [node name="PowerUpTimer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 2.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(960, 0)
+points = PackedVector2Array(0, 0, 0, 1080)
+width = 16.0
+default_color = Color(1, 1, 1, 0)
+script = ExtResource("7_ksy44")
 
 [connection signal="body_entered" from="ArcoPlayer" to="." method="_on_arco_player_body_entered"]
 [connection signal="body_entered" from="ArcoOponente" to="." method="_on_arco_oponente_body_entered"]
