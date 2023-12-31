@@ -33,12 +33,13 @@ func _physics_process(delta):
 			else:
 				$AudioCollision.play()
 
-func reset_ball():
+func reset_ball():# Resetea su posicion y velocidad del powerup ya que sera tratado como otra bola
 	timer.stop() 
 	speed = 400;
 	direction.x = [-1, 1][randi() % 2]
 	direction.y = [-0.8, 0.8][randi() % 2]
 	is_moving = true
+	
 
 func select_powerup(): #Cambio el estado del powerup mediante un numero aleatorio
 	var random = RandomNumberGenerator.new()

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-const maxSpeed:int = 400
+const maxSpeed:int = 500
 var acceleration:int = 1500
 const friction:int = 800
 
@@ -54,17 +54,31 @@ func _reduce_bar():
 	var nueva_escala = Vector2(1, 0.5) 
 	global_scale = nueva_escala
 
-func _on_area_2d_body_entered(body):
+func _reset_player(): #Restableciendo al jugador a su estado original
+	global_scale = Vector2(1, 1) 
+	
+func _reset_timer():
+	if $PowerupTimer.is_stopped() == false:
+		$PowerupTimer.stop()
+	$PowerupTimer.start()
+
+func _on_area_2d_body_entered(body):#Falta probar crear un nodo timer
 	if body.is_in_group("power"):
 		if powerUp1:
 			_expand_bar()
+			_reset_timer()
 			powerUp1 = false
 			print(powerUp1)
 		if powerUp2:
 			_reduce_bar()
+			_reset_timer()
 			powerUp2 = false
 			print(powerUp2)
 		if powerUp3:
 			Global.change_scenary()
 			powerUp3 = false
 			print(powerUp3)
+
+
+func _on_powerup_timer_timeout():
+	_reset_player()

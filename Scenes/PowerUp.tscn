@@ -9,7 +9,7 @@
 radius = 48.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k1y8l"]
-radius = 81.0
+radius = 59.0762
 
 [node name="PowerUp" type="CharacterBody2D" groups=["power"]]
 script = ExtResource("1_k2yo7")

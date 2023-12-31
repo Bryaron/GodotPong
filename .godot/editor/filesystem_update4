@@ -2,11 +2,6 @@ res://Scenes/PowerUp.tscn
 res://Scripts/Player.gd
 res://Scenes/Ball.tscn
 res://Scenes/Level.tscn
-res://Scenes/Opponent.tscn
 res://Scenes/Player.tscn
-res://Scripts/PowerUp.gd
-res://Scripts/Global.gd
-res://Scripts/Level.gd
-res://Scripts/DashedLine2D.gd
-res://addons/dashed_line/dashed_line.gd
-res://Scripts/Line2D.gd
+res://Scenes/Opponent.tscn
+res://Scripts/Opponent.gd

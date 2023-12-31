@@ -325,17 +325,23 @@ size_flags_horizontal = 4
 custom_minimum_size = Vector2(0, 3)
 layout_mode = 2
 
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(960, 0)
+points = PackedVector2Array(0, 0, 0, 1080)
+width = 16.0
+default_color = Color(1, 1, 1, 0)
+script = ExtResource("7_ksy44")
+
 [node name="Player" parent="." instance=ExtResource("1_o8e0s")]
 position = Vector2(50, 500)
 up_direction = Vector2(1, 0)
 slide_on_ceiling = false
 
 [node name="Opponent" parent="." instance=ExtResource("4_kqi7r")]
-position = Vector2(1870, 540)
+position = Vector2(1870, 500)
 
 [node name="Ball" parent="." instance=ExtResource("2_xfd05")]
 position = Vector2(960, 540)
-platform_floor_layers = 4294967294
 
 [node name="ParedSuperior" type="StaticBody2D" parent="."]
 
@@ -396,16 +402,9 @@ horizontal_alignment = 1
 [node name="RestartTimer" type="Timer" parent="."]
 
 [node name="PowerUpTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 3.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-
-[node name="Line2D" type="Line2D" parent="."]
-position = Vector2(960, 0)
-points = PackedVector2Array(0, 0, 0, 1080)
-width = 16.0
-default_color = Color(1, 1, 1, 0)
-script = ExtResource("7_ksy44")
 
 [connection signal="body_entered" from="ArcoPlayer" to="." method="_on_arco_player_body_entered"]
 [connection signal="body_entered" from="ArcoOponente" to="." method="_on_arco_oponente_body_entered"]
