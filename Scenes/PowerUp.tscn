@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbdnl73qdjbvh"]
+[gd_scene load_steps=8 format=3 uid="uid://dbdnl73qdjbvh"]
 
 [ext_resource type="Script" path="res://Scripts/PowerUp.gd" id="1_k2yo7"]
 [ext_resource type="Texture2D" uid="uid://do7b7r0v22t03" path="res://Assets/icon_color.svg" id="2_r8mac"]
 [ext_resource type="AudioStream" uid="uid://dp0plffntgcad" path="res://Audio/audio-bounce.ogg" id="3_cfn4j"]
 [ext_resource type="AudioStream" uid="uid://bn3q16fxlo7ux" path="res://Audio/powerUpSound2.wav" id="4_naq7d"]
+[ext_resource type="PackedScene" uid="uid://dxtn55ep8wxdr" path="res://Scenes/Trail2D.tscn" id="5_hp7ry"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sp1en"]
 radius = 48.0
@@ -12,6 +13,7 @@ radius = 48.0
 radius = 59.0762
 
 [node name="PowerUp" type="CharacterBody2D" groups=["power"]]
+z_index = 1
 script = ExtResource("1_k2yo7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -19,6 +21,7 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_r8mac")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_sp1en")
 debug_color = Color(0.0588235, 0.52549, 1, 0.419608)
 
@@ -29,13 +32,21 @@ stream = ExtResource("3_cfn4j")
 stream = ExtResource("4_naq7d")
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 shape = SubResource("CircleShape2D_k1y8l")
 debug_color = Color(0.72549, 0.282353, 0.945098, 0.419608)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+visible = false
 scale = Vector2(4.5, 4.5)
+
+[node name="Trail2D" parent="." instance=ExtResource("5_hp7ry")]
+top_level = true
+points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+max_lenght = 50
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
