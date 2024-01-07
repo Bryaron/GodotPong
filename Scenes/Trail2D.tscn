@@ -3,17 +3,15 @@
 [ext_resource type="Script" path="res://Scripts/Trail2D.gd" id="1_nmdrd"]
 
 [sub_resource type="Curve" id="Curve_hqjnj"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_mx7s2"]
-colors = PackedColorArray(1, 1, 1, 0.435294, 1, 1, 1, 0)
+colors = PackedColorArray(0.294118, 0.356863, 0.670588, 0, 0.278431, 0.54902, 0.74902, 1)
 
 [node name="Trail2D" type="Line2D"]
-points = PackedVector2Array(21, -25)
-width = 100.0
+points = PackedVector2Array(0, 0, 18, 0, 32, 0)
 width_curve = SubResource("Curve_hqjnj")
 gradient = SubResource("Gradient_mx7s2")
-texture_mode = 1
+joint_mode = 2
 script = ExtResource("1_nmdrd")
-max_lenght = 10
