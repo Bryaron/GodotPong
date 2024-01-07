@@ -19,6 +19,7 @@ script = ExtResource("1_e1lm2")
 powerUp = ExtResource("6_rv12r")
 
 [node name="Background" type="ColorRect" parent="."]
+visible = false
 offset_right = 1920.0
 offset_bottom = 1080.0
 size_flags_horizontal = 0
