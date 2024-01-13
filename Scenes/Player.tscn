@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3wjxu0wdiuhn"]
+[gd_scene load_steps=8 format=3 uid="uid://d3wjxu0wdiuhn"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_warqk"]
 
@@ -6,7 +6,95 @@
 size = Vector2(10, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpu6q"]
-size = Vector2(24, 112)
+size = Vector2(12, 84)
+
+[sub_resource type="Animation" id="Animation_xtxev"]
+resource_name = "expand_bar"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_kcakp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_scnin"]
+resource_name = "reduce_bar"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_isicc"]
+_data = {
+"RESET": SubResource("Animation_kcakp"),
+"expand_bar": SubResource("Animation_xtxev"),
+"reduce_bar": SubResource("Animation_scnin")
+}
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
@@ -23,12 +111,18 @@ shape = SubResource("RectangleShape2D_tey5v")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(12, 40)
+position = Vector2(6, 40)
 shape = SubResource("RectangleShape2D_lpu6q")
 debug_color = Color(0.941176, 0, 0.615686, 0.419608)
 
 [node name="PowerupTimer" type="Timer" parent="."]
 wait_time = 10.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_isicc")
+}
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="PowerupTimer" to="." method="_on_powerup_timer_timeout"]

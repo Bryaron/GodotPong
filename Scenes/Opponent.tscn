@@ -6,7 +6,7 @@
 size = Vector2(10, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_arvjo"]
-size = Vector2(24, 112)
+size = Vector2(12, 84)
 
 [node name="Opponent" type="CharacterBody2D"]
 motion_mode = 1
@@ -27,7 +27,7 @@ shape = SubResource("RectangleShape2D_tey5v")
 position = Vector2(0, -40)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2, 40)
+position = Vector2(4, 40)
 shape = SubResource("RectangleShape2D_arvjo")
 debug_color = Color(0.941176, 0, 0.615686, 0.419608)
 

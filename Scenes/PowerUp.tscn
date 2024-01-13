@@ -10,7 +10,7 @@
 radius = 48.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k1y8l"]
-radius = 59.0762
+radius = 52.0096
 
 [node name="PowerUp" type="CharacterBody2D" groups=["power"]]
 script = ExtResource("1_k2yo7")
@@ -39,15 +39,12 @@ debug_color = Color(0.72549, 0.282353, 0.945098, 0.419608)
 scale = Vector2(4.5, 4.5)
 
 [node name="Trail2D" parent="." instance=ExtResource("5_hp7ry")]
-top_level = true
 z_index = -1
 rotation = 1.5708
-points = PackedVector2Array(0, 0)
 width = 100.0
 begin_cap_mode = 2
 end_cap_mode = 2
 is_emitting = true
-resolution = 100.0
 target_path = NodePath("..")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

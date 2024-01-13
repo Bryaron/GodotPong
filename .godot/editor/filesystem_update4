@@ -1,9 +1,12 @@
-res://Scenes/Trail2D.tscn
+res://Scenes/Ball.tscn
 res://Scripts/Player.gd
 res://Scripts/Trail2D.gd
 res://Assets/Shaders/Ball.gdshader
-res://Scenes/PowerUp.tscn
-res://Scenes/Ball.tscn
 res://Scenes/Level.tscn
 res://Scenes/Player.tscn
 res://Scenes/Opponent.tscn
+res://Scenes/PowerUp.tscn
+res://Scenes/Trail2D.tscn
+res://Scripts/Global.gd
+res://Scripts/Level.gd
+res://Scripts/PowerUp.gd

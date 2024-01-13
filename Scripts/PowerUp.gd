@@ -29,7 +29,6 @@ func _physics_process(delta):
 			if collider is Player or collider is Opponent: 
 				audio.stream = $AudioPowerUp.get_stream()
 				audio.play()
-				queue_free()
 			else:
 				$AudioCollision.play()
 

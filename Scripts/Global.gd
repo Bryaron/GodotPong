@@ -6,10 +6,6 @@ extends Node
 @onready var opponentBar = get_node("/root/Level/Opponent/ColorRect")
 @onready var line2D = get_node("/root/Level/Line2D")
 
-func _ready():
-	print(playerBar)
-	print(opponentBar)
-
 func change_scenary():
 	# Generar colores aleatorios para el fondo y los bordes
 	var background_color = Color(randf(), randf(), randf())

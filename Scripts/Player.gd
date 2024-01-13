@@ -47,38 +47,42 @@ func applyFriction(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	
 func _expand_bar():
-	var nueva_escala = Vector2(1, 2) 
-	global_scale = nueva_escala
+	$AnimationPlayer.play("expand_bar")
 	
 func _reduce_bar():
-	var nueva_escala = Vector2(1, 0.5) 
-	global_scale = nueva_escala
+	$AnimationPlayer.play("reduce_bar")
 
 func _reset_player(): #Restableciendo al jugador a su estado original
-	global_scale = Vector2(1, 1) 
-	
-func _reset_timer():
-	if $PowerupTimer.is_stopped() == false:
-		$PowerupTimer.stop()
-	$PowerupTimer.start()
+	$AnimationPlayer.play("RESET")
 
-func _on_area_2d_body_entered(body):#Falta probar crear un nodo timer
+func _reset_powerups():
+	powerUp1 = false
+	powerUp2 = false
+	powerUp3 = false
+
+func _reset_timer():
+		$PowerupTimer.start()
+
+func _on_area_2d_body_entered(body):
 	if body.is_in_group("power"):
 		if powerUp1:
+			
 			_expand_bar()
-			_reset_timer()
-			powerUp1 = false
 			print(powerUp1)
+			
 		if powerUp2:
+			
 			_reduce_bar()
-			_reset_timer()
-			powerUp2 = false
 			print(powerUp2)
 		if powerUp3:
+			
 			Global.change_scenary()
-			powerUp3 = false
 			print(powerUp3)
-
+		
+		_reset_timer()
+		print(str(powerUp1) + str(powerUp2)+ str(powerUp3))
+		_reset_powerups()
+		body.queue_free()
 
 func _on_powerup_timer_timeout():
 	_reset_player()
