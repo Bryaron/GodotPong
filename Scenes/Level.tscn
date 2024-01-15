@@ -126,9 +126,9 @@ text = "Marcador del Oponente"
 horizontal_alignment = 1
 
 [node name="TimePowerUp" type="Label" parent="."]
-offset_left = 12.0
+offset_left = 23.0
 offset_top = 969.0
-offset_right = 708.0
+offset_right = 719.0
 offset_bottom = 1069.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("5_8jd4q")

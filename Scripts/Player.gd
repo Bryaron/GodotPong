@@ -14,6 +14,8 @@ var powerUp3:bool = false
 var direction = Vector2.ZERO
 var input = Vector2.ZERO
 
+@onready var playback  = $AnimationTree.get("parameters/playback")
+
 func _physics_process(delta):
 	#print(velocity)
 	input = Input.get_axis("move_up", "move_down")
@@ -28,9 +30,8 @@ func _physics_process(delta):
 		isMoving = true
 		accelerate(delta)
 		#print("Se mueve")
-		
-	move_and_collide(velocity * delta)
 	
+	move_and_collide(velocity * delta)
 	
 func accelerate(delta):
 	velocity += (direction * acceleration * delta)
@@ -47,13 +48,13 @@ func applyFriction(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	
 func _expand_bar():
-	$AnimationPlayer.play("expand_bar")
+	playback.travel("expand_bar")
 	
 func _reduce_bar():
-	$AnimationPlayer.play("reduce_bar")
+	playback.travel("reduce_bar")
 
 func _reset_player(): #Restableciendo al jugador a su estado original
-	$AnimationPlayer.play("RESET")
+	playback.travel("RESET")
 
 func _reset_powerups():
 	powerUp1 = false
@@ -66,16 +67,12 @@ func _reset_timer():
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("power"):
 		if powerUp1:
-			
 			_expand_bar()
 			print(powerUp1)
-			
 		if powerUp2:
-			
 			_reduce_bar()
 			print(powerUp2)
 		if powerUp3:
-			
 			Global.change_scenary()
 			print(powerUp3)
 		

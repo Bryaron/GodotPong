@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3wjxu0wdiuhn"]
+[gd_scene load_steps=17 format=3 uid="uid://d3wjxu0wdiuhn"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_warqk"]
 
@@ -7,33 +7,6 @@ size = Vector2(10, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpu6q"]
 size = Vector2(12, 84)
-
-[sub_resource type="Animation" id="Animation_xtxev"]
-resource_name = "expand_bar"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1, 2)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [true, false, true, false, true, false, true, false, true, false, true]
-}
 
 [sub_resource type="Animation" id="Animation_kcakp"]
 length = 0.001
@@ -60,6 +33,33 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_xtxev"]
+resource_name = "expand_bar"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_scnin"]
@@ -96,6 +96,42 @@ _data = {
 "reduce_bar": SubResource("Animation_scnin")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3wnyn"]
+animation = &"RESET"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jm0oj"]
+animation = &"expand_bar"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_03tx3"]
+animation = &"reduce_bar"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x2kbg"]
+advance_mode = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xx300"]
+advance_mode = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a1w42"]
+advance_mode = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_klq0b"]
+advance_mode = 0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_17s3c"]
+advance_mode = 0
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fs0sg"]
+states/End/position = Vector2(877, 124)
+states/RESET/node = SubResource("AnimationNodeAnimation_3wnyn")
+states/RESET/position = Vector2(544, 142)
+states/Start/position = Vector2(395, 142)
+states/expand_bar/node = SubResource("AnimationNodeAnimation_jm0oj")
+states/expand_bar/position = Vector2(544, 58)
+states/reduce_bar/node = SubResource("AnimationNodeAnimation_03tx3")
+states/reduce_bar/position = Vector2(544, 220)
+transitions = ["Start", "RESET", SubResource("AnimationNodeStateMachineTransition_x2kbg"), "RESET", "expand_bar", SubResource("AnimationNodeStateMachineTransition_xx300"), "expand_bar", "RESET", SubResource("AnimationNodeStateMachineTransition_a1w42"), "reduce_bar", "RESET", SubResource("AnimationNodeStateMachineTransition_klq0b"), "RESET", "reduce_bar", SubResource("AnimationNodeStateMachineTransition_17s3c")]
+graph_offset = Vector2(-43, 13)
+
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_warqk")
@@ -123,6 +159,13 @@ one_shot = true
 libraries = {
 "": SubResource("AnimationLibrary_isicc")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_isicc")
+}
+tree_root = SubResource("AnimationNodeStateMachine_fs0sg")
+anim_player = NodePath("../AnimationPlayer")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="PowerupTimer" to="." method="_on_powerup_timer_timeout"]

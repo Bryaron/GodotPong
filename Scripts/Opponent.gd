@@ -15,6 +15,8 @@ var powerUp3:bool = false
 
 var direction = Vector2.ZERO
 
+@onready var playback  = $AnimationTree.get("parameters/playback")
+
 func _physics_process(delta):
 	direction = Vector2(0,_get_direction())
 
@@ -59,16 +61,19 @@ func applyFriction(delta):
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 		
 func _expand_bar():
-	var nueva_escala = Vector2(1, 2) 
-	global_scale = nueva_escala
+	playback.travel("expand_bar")
 	
 func _reduce_bar():
-	var nueva_escala = Vector2(1, 0.5) 
-	global_scale = nueva_escala
+	playback.travel("reduce_bar")
 
 func _reset_opponent(): #Restableciendo al oponente a su estado original
-	global_scale = Vector2(1, 1) 
-	
+	playback.travel("RESET")
+
+func _reset_powerups():
+	powerUp1 = false
+	powerUp2 = false
+	powerUp3 = false
+
 func _reset_timer():
 	if $PowerupTimer.is_stopped() == false:
 		$PowerupTimer.stop()
@@ -79,18 +84,17 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("power"):
 		if powerUp1:
 			_expand_bar()
-			_reset_timer()
-			powerUp1 = false
 			print(powerUp1)
 		if powerUp2:
 			_reduce_bar()
-			_reset_timer()
-			powerUp2 = false
 			print(powerUp2)
-		else:
+		if powerUp3:
 			pass
-
-
+		
+		_reset_timer()
+		print(str(powerUp1) + str(powerUp2)+ str(powerUp3))
+		_reset_powerups()
+		body.queue_free()
 
 func _on_powerup_timer_timeout():
 	_reset_opponent()
