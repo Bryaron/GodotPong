@@ -1,10 +1,10 @@
 extends Node
 
-@onready var borders = get_tree().get_nodes_in_group("border")
+@onready var border = get_node("/root/Level/ContainerBorder/ContainerBorderLine")
 @onready var background = get_node("/root/Level/Background")
 @onready var playerBar = get_node("/root/Level/Player/ColorRect")
 @onready var opponentBar = get_node("/root/Level/Opponent/ColorRect")
-@onready var line2D = get_node("/root/Level/Line2D")
+@onready var dashedLine2D = get_node("/root/Level/DashedLine2D")
 
 func change_scenary():
 	# Generar colores aleatorios para el fondo y los bordes
@@ -17,8 +17,6 @@ func change_scenary():
 	background.color = background_color
 	playerBar.color = player_color
 	opponentBar.color = opponent_color
-	line2D.modulate = line2D_color
-
-	for border in borders:
-		border.color = border_color
+	dashedLine2D.modulate = line2D_color
+	border.default_color = border_color
 

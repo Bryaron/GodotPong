@@ -29,29 +29,15 @@ color = Color(0, 0, 0, 1)
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="LeftBorder" type="ColorRect" parent="ContainerBorder" groups=["border"]]
-layout_mode = 0
-offset_right = 10.0
-offset_bottom = 1080.0
+[node name="ContainerBorderLine" type="Line2D" parent="ContainerBorder"]
+position = Vector2(-0.00012207, 0)
+scale = Vector2(1, 1)
+points = PackedVector2Array(5.00012, 5, 1915, 5, 1915, 1075, 5.00012, 1075)
+closed = true
+joint_mode = 2
+round_precision = 32
 
-[node name="RightBorder" type="ColorRect" parent="ContainerBorder" groups=["border"]]
-layout_mode = 0
-offset_left = 1910.0
-offset_right = 1920.0
-offset_bottom = 1080.0
-
-[node name="TopBorder" type="ColorRect" parent="ContainerBorder" groups=["border"]]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 10.0
-
-[node name="BottomBorder" type="ColorRect" parent="ContainerBorder" groups=["border"]]
-layout_mode = 0
-offset_top = 1070.0
-offset_right = 1920.0
-offset_bottom = 1080.0
-
-[node name="Line2D" type="Line2D" parent="."]
+[node name="DashedLine2D" type="Line2D" parent="."]
 position = Vector2(960, 0)
 points = PackedVector2Array(0, 0, 0, 1080)
 width = 16.0
