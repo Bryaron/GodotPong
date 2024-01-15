@@ -31,21 +31,17 @@ func _ready() -> void:
 	if not target:
 		target = get_parent() as Node2D
 	
-	
-
 	_offset = position.length()
 	set_as_top_level(true)
 	clear_points()
 	position = Vector2.ZERO
 	_last_point = to_local(target.global_position) + calculate_offset()
 
-
 func _get_configuration_warning() -> String:
 	var warning := "Missing Target node: assign a Node that extends Node2D in the Target Path or make the Trail a child of a parent that extends Node2D"
 	if target:
 		warning = ""
 	return warning
-
 
 func _process(delta: float) -> void:
 	_clock += delta
@@ -60,7 +56,6 @@ func _process(delta: float) -> void:
 	if distance > resolution:
 		add_timed_point(desired_point, _clock)
 
-
 # Creates a new point and stores its creation time.
 func add_timed_point(point: Vector2, time: float) -> void:
 	add_point(point + calculate_offset())
@@ -68,7 +63,6 @@ func add_timed_point(point: Vector2, time: float) -> void:
 	_last_point = point
 	if get_point_count() > max_points:
 		remove_first_point()
-
 
 # Calculates the offset of the trail from its target.
 func calculate_offset() -> Vector2:
@@ -83,7 +77,6 @@ func remove_first_point() -> void:
 		remove_point(0)
 	_points_creation_time.pop_front()
 
-
 # Remove points older than `lifetime`.
 func remove_older() -> void:
 	for creation_time in _points_creation_time:
@@ -94,7 +87,6 @@ func remove_older() -> void:
 		# isn't older than `lifetime`, we know all remaining points should stay as well.
 		else:
 			break
-
 
 func set_emitting(emitting: bool):
 	is_emitting = emitting

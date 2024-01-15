@@ -17,19 +17,16 @@ var input = Vector2.ZERO
 @onready var playback  = $AnimationTree.get("parameters/playback")
 
 func _physics_process(delta):
-	#print(velocity)
 	input = Input.get_axis("move_up", "move_down")
 	direction = Vector2(0, input)
 	
 	if (direction.y == 0): 
 		isMoving = false
 		applyFriction(delta)
-		#print("No se mueve")
 		
 	else: 
 		isMoving = true
 		accelerate(delta)
-		#print("Se mueve")
 	
 	move_and_collide(velocity * delta)
 	
@@ -44,7 +41,6 @@ func applyFriction(delta):
 		velocity -= velocity.normalized() * friction * delta
 	else:
 		#Hace que frene mas rapido si el input en Y es zero
-		#velocity = Vector2.ZERO
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 	
 func _expand_bar():
@@ -68,16 +64,12 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("power"):
 		if powerUp1:
 			_expand_bar()
-			print(powerUp1)
 		if powerUp2:
 			_reduce_bar()
-			print(powerUp2)
 		if powerUp3:
 			Global.change_scenary()
-			print(powerUp3)
 		
 		_reset_timer()
-		print(str(powerUp1) + str(powerUp2)+ str(powerUp3))
 		_reset_powerups()
 		body.queue_free()
 

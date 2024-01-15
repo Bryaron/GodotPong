@@ -23,17 +23,14 @@ func _physics_process(delta):
 	if (direction.y == 0): 
 		isMoving = false
 		applyFriction(delta)
-		#print("No se mueve")
 		
 	else: 
 		isMoving = true
 		accelerate(delta)
-		#print("Se mueve")
 		
 	move_and_collide(velocity * delta)
 
 func _get_direction():
-	
 	if abs(ball.position.y - position.y ) > 0:
 		if ball.position.y > position.y:
 			return 1
@@ -57,7 +54,6 @@ func applyFriction(delta):
 		velocity -= velocity.normalized() * friction * delta
 	else:
 		#Hace que frene mas rapido si el input en Y es zero
-		#velocity = Vector2.ZERO
 		velocity = velocity.move_toward(Vector2.ZERO, friction * delta)
 		
 func _expand_bar():
@@ -79,20 +75,16 @@ func _reset_timer():
 		$PowerupTimer.stop()
 	$PowerupTimer.start()
 
-
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("power"):
 		if powerUp1:
 			_expand_bar()
-			print(powerUp1)
 		if powerUp2:
 			_reduce_bar()
-			print(powerUp2)
 		if powerUp3:
 			pass
 		
 		_reset_timer()
-		print(str(powerUp1) + str(powerUp2)+ str(powerUp3))
 		_reset_powerups()
 		body.queue_free()
 

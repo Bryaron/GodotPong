@@ -10,3 +10,4 @@ res://Scenes/Trail2D.tscn
 res://Scripts/Level.gd
 res://Scripts/Opponent.gd
 res://Scripts/Global.gd
+res://Scripts/PowerUp.gd
