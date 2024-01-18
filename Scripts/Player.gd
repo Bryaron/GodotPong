@@ -28,7 +28,7 @@ func _physics_process(delta):
 		isMoving = true
 		accelerate(delta)
 	
-	move_and_collide(velocity * delta)
+	move_and_collide(velocity * delta, 0.00)
 	
 func accelerate(delta):
 	velocity += (direction * acceleration * delta)
@@ -69,9 +69,9 @@ func _on_area_2d_body_entered(body):
 		if powerUp3:
 			Global.change_scenary()
 		
+		body.queue_free()
 		_reset_timer()
 		_reset_powerups()
-		body.queue_free()
 
 func _on_powerup_timer_timeout():
 	_reset_player()

@@ -12,6 +12,7 @@ func _process(delta):
 	$ScorePlayer.text = str(playerScore)
 	$ScoreOpponent.text = str(opponentScore)
 	$TimePowerUp.text = str(int($Player/PowerupTimer.time_left))
+
 func _restart_game():
 	$Ball.is_moving = false;
 	$Ball.direction = Vector2.ZERO

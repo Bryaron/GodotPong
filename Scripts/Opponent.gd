@@ -29,6 +29,7 @@ func _physics_process(delta):
 		accelerate(delta)
 		
 	move_and_collide(velocity * delta)
+	
 
 func _get_direction():
 	if abs(ball.position.y - position.y ) > 0:

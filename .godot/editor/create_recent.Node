@@ -1,3 +1,4 @@
+RigidBody2D
 Panel
 Line2D
 AnimationTree
@@ -12,4 +13,3 @@ ColorRect
 Timer
 Node
 CollisionShape2D
-Area2D

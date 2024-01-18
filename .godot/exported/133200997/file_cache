@@ -1,3 +1,6 @@
-res://Ball.tscn::f4346d173291bf296b75f0d4d8a75dc2::1698308088::res://.godot/exported/133200997/export-13ff16a1a67b7cf74659b874d069e377-Ball.scn
-res://Level.tscn::d4da35dd82abac305bbfdaba161337d1::1698627655::res://.godot/exported/133200997/export-8ab1944fdd2f463ba79a3989a68a4d39-Level.scn
-res://Player.tscn::435247d35b035514608e188d0af68db6::1698627655::res://.godot/exported/133200997/export-90e1ff3baa03524a506ff0f7a9d78dcf-Player.scn
+res://Scenes/Ball.tscn::50d9347e9af116960d7d7b4804a59cd3::1705296728::res://.godot/exported/133200997/export-11f54682f61022e4afbedc07b01b845e-Ball.scn
+res://Scenes/Level.tscn::6766e1e4fe06f83dac9ec3fa0651e56a::1705550622::res://.godot/exported/133200997/export-44e9c94aaf0888750f1e3fc27d477f34-Level.scn
+res://Scenes/Opponent.tscn::f5c674c3635e36e9f43747ea5d543aad::1705550622::res://.godot/exported/133200997/export-46e1d75c5f00617f714dab8253a6b73a-Opponent.scn
+res://Scenes/Player.tscn::c34684fd6da804ae19de5b039c390b29::1705550749::res://.godot/exported/133200997/export-a7209d3b864edc0146622aad500fa2c1-Player.scn
+res://Scenes/PowerUp.tscn::d1195129f3b5e8ec374cb1baea8d3fb3::1705550712::res://.godot/exported/133200997/export-d89f6b1be5920762af6956eeb419a551-PowerUp.scn
+res://Scenes/Trail2D.tscn::5b619d88a95af2a105d196f145d1df1f::1705296729::res://.godot/exported/133200997/export-7cf5f5b808f0866fbf66a7bffd836f89-Trail2D.scn

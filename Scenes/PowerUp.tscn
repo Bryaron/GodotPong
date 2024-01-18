@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbdnl73qdjbvh"]
+[gd_scene load_steps=7 format=3 uid="uid://dbdnl73qdjbvh"]
 
 [ext_resource type="Script" path="res://Scripts/PowerUp.gd" id="1_k2yo7"]
 [ext_resource type="Texture2D" uid="uid://do7b7r0v22t03" path="res://Assets/icon_color.svg" id="2_r8mac"]
@@ -7,10 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dxtn55ep8wxdr" path="res://Scenes/Trail2D.tscn" id="5_hp7ry"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sp1en"]
-radius = 48.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_k1y8l"]
-radius = 52.0096
+radius = 44.0
 
 [node name="PowerUp" type="CharacterBody2D" groups=["power"]]
 script = ExtResource("1_k2yo7")
@@ -29,12 +26,6 @@ stream = ExtResource("3_cfn4j")
 [node name="AudioPowerUp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_naq7d")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_k1y8l")
-debug_color = Color(0.72549, 0.282353, 0.945098, 0.419608)
-
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 scale = Vector2(4.5, 4.5)
 
@@ -47,5 +38,4 @@ end_cap_mode = 2
 is_emitting = true
 target_path = NodePath("..")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

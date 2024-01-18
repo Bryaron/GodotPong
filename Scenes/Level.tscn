@@ -18,20 +18,12 @@ size = Vector2(50, 1180)
 script = ExtResource("1_e1lm2")
 powerUp = ExtResource("6_rv12r")
 
-[node name="Background" type="ColorRect" parent="."]
-visible = false
-offset_right = 1920.0
-offset_bottom = 1080.0
-size_flags_horizontal = 0
-color = Color(0, 0, 0, 1)
-
 [node name="ContainerBorder" type="Panel" parent="."]
 offset_right = 1920.0
 offset_bottom = 1080.0
 
 [node name="ContainerBorderLine" type="Line2D" parent="ContainerBorder"]
 position = Vector2(-0.00012207, 0)
-scale = Vector2(1, 1)
 points = PackedVector2Array(5.00012, 5, 1915, 5, 1915, 1075, 5.00012, 1075)
 closed = true
 joint_mode = 2

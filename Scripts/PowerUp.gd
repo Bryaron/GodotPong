@@ -27,6 +27,7 @@ func _physics_process(delta):
 			rotSpeed = rotSpeed * -1
 			var collider = collide.get_collider() #Obtengo el objecto mediante el collider
 			if collider is Player or collider is Opponent: 
+				give_powerup(collider)
 				audio.stream = $AudioPowerUp.get_stream()
 				audio.play()
 			else:
@@ -50,17 +51,13 @@ func give_powerup(body):
 	match powerupState:
 		PowerUpEnum.POWERUP_1:
 			body.powerUp1 = true
-			#print(str(body) + " : El estado del power-up es: " + str(powerupState) + " Agrandando la barra " + str(body.powerUp1) )
+			print(str(body) + " : El estado del power-up es: " + str(powerupState) + " Agrandando la barra " + str(body.powerUp1) )
 		PowerUpEnum.POWERUP_2:
 			body.powerUp2 = true
-			#print(str(body) + " : El estado del power-up es: " + str(powerupState) + " Achicando la barra " + str(body.powerUp2))
+			print(str(body) + " : El estado del power-up es: " + str(powerupState) + " Achicando la barra " + str(body.powerUp2))
 		PowerUpEnum.POWERUP_3:
 			body.powerUp3 = true
-			#print(str(body) + " : El estado del power-up es: " + str(powerupState) + " Cambiando escenario " + str(body.powerUp3))
-
-func _on_area_2d_body_entered(body):
-	if body is Player or body is Opponent:
-		give_powerup(body)
+			print(str(body) + " : El estado del power-up es: " + str(powerupState) + " Cambiando escenario " + str(body.powerUp3))
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
